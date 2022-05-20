@@ -123,4 +123,4 @@ But it also included some insperations from John Little.
 
 - [Text Mining with R (Julia Silge & David Robinson)](https://www.tidytextmining.com/) / [license](https://creativecommons.org/licenses/by-nc-sa/3.0/us/)
 - [Sentiment analysis with tidytext (John Little)](https://www.youtube.com/watch?v=P5ihIzoZivc&t=1613s) 
-- [textmining workshop (John Little)](https://github.com/libjohn/workshop_textmining/blob/main/license.txt) / [license](https://github.com/libjohn/workshop_textmining/blob/main/license.txt)
+- [textmining workshop (John Little)](https://github.com/libjohn/workshop_textmining) / [license](https://github.com/libjohn/workshop_textmining/blob/main/license.txt)
