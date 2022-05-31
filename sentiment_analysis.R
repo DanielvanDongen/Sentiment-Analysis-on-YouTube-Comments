@@ -423,8 +423,7 @@ ggraph(bigram_graph, layout = "fr") +
 
 
 
-
-# --- Trigram network 
+# --- Most used Trigrams 
 
 
 
@@ -437,14 +436,7 @@ c_data1 %>%
          !word3 %in% stop_words$word) %>%
   count(word1, word2, word3, sort = TRUE) %>%
   filter(n > 5) %>%
-  na.omit %>%
-  graph_from_data_frame() %>%
-  ggraph(layout = "fr") +
-  geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,
-                 arrow = ar2, end_cap = circle(.07, "inches")) +
-  geom_node_point(color = "darkolivegreen2", alpha = 0.7, size = 4, shape = 19) +
-  geom_node_text(aes(label = name), repel = TRUE) +
-  theme_void()
+  na.omit 
 
 
 
