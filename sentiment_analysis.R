@@ -92,7 +92,7 @@ c_data1_nos %>%
                  random.order = FALSE, colors = brewer.pal(8, "Dark2")))
 
 
-#word cloud with stemming + filter out all numbers
+# word cloud with stemming + filter out all numbers
 stemmed_data1 %>%
   filter(str_detect(word, "[a-z]")) %>%
   count(word) %>%
@@ -123,7 +123,7 @@ bing_word_count <- stemmed_data1 %>%
   ungroup()
 
 
-# General contribution of sentiment 
+# general contribution of sentiment 
 bing_word_count %>%
   group_by(sentiment) %>%
   ggplot(aes(n, sentiment, fill = sentiment)) +
@@ -131,7 +131,7 @@ bing_word_count %>%
   scale_fill_manual("legend", values = c("positive" = "cadetblue3", "negative" = "firebrick"))
 
 
-# Contribution of words split by sentiment
+# contribution of words split by sentiment
 bing_word_count %>%
   group_by(sentiment) %>%
   slice_max(n, n = 10) %>%
@@ -145,7 +145,7 @@ bing_word_count %>%
 
 
 
-# Overall sentiment using 'bing' lexicon 
+# overall sentiment using 'bing' lexicon 
 stemmed_data1 %>%
   inner_join(get_sentiments("bing")) %>%
   count(index = line %/% 20, sentiment) %>%
@@ -180,7 +180,7 @@ afinn_sentiment %>%
   labs(y = "amount")
 
 
-# Overall sentiment using lexicon 'afinn'
+# overall sentiment using lexicon 'afinn'
 afinn_sentiment %>%
   group_by(index = line %/% 20) %>%
   summarise(sentiment = sum(value)) %>%
@@ -191,7 +191,7 @@ afinn_sentiment %>%
   labs(title = "afinn sentiment")
 
 
-# Overall sentiment using lexicon 'afinn' and color palette
+# overall sentiment using lexicon 'afinn' and color palette
 afinn_sentiment %>%
   group_by(index = line %/% 20) %>%
   summarise(sentiment = sum(value)) %>%
@@ -222,7 +222,7 @@ nrc_sentiment %>%
   labs(x = "amount")
 
 
-# Overall sentiment using lexicon 'nrc', !only looking on sentiments like = postive & negative!
+# overall sentiment using lexicon 'nrc', !only looking on sentiments like = postive & negative!
 nrc_sentiment %>%
   count(index = line %/% 20, sentiment) %>%
   pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) %>%
